@@ -1,0 +1,20 @@
+{
+  "name": "portfolio-ousmane-barry",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Portfolio d'Ousmane Barry (site statique) et ses tests unitaires et d'intégration.",
+  "scripts": {
+    "serve": "node tests/static-server.js site 8080",
+    "test:unit": "node --test tests/unit/*.test.js",
+    "test:integration": "playwright test --project=desktop --project=mobile",
+    "test": "npm run test:unit && npm run test:integration",
+    "test:safari": "playwright test --project=safari --project=iphone",
+    "test:all": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

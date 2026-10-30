@@ -1,0 +1,24 @@
+# Lance les tests unitaires et d'intégration à chaque push / pull request.
+name: Tests du portfolio
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install
+      - run: npx playwright install --with-deps chromium webkit
+      - run: npm run test:unit
+      - run: npx playwright test   # Chromium + WebKit (Safari), ordinateur et mobile
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: rapport-playwright
+          path: playwright-report/
