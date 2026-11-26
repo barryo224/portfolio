@@ -69,7 +69,7 @@ test.describe('Contenu', () => {
     test('les projets data et web sont tous présents', async ({ page }) => {
         await page.goto('/');
         await expect(page.getByTestId('data-project')).toHaveCount(4);
-        await expect(page.getByTestId('web-project')).toHaveCount(5);
+        await expect(page.getByTestId('web-project')).toHaveCount(6);
         await expect(page.locator('#projects')).toContainText('MLOps');
         await expect(page.locator('#projects')).toContainText('consommation électrique');
         await expect(page.locator('#projects')).not.toContainText(/retard des vols/i);
