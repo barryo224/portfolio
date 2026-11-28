@@ -59,7 +59,7 @@ test.describe('Contenu', () => {
         await expect(hero).toContainText('stage Développeur Data');
         await expect(hero).toContainText('du 26 avril à fin juin 2027');
         await expect(hero).toContainText('8 à 9 semaines');
-        await expect(hero).toContainText('Lyon');
+        await expect(hero).toContainText('Mobilité : France');
         await expect(hero).toContainText('Licence 3 MIASHS');
         // Plus aucune trace de l'ancien positionnement
         const body = await page.locator('body').innerText();
